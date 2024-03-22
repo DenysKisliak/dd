@@ -4,13 +4,13 @@ services:
   - docker
 
 before_install:
-  -  docker build -t denyskisliak/docker-first -f './Docker App/Dockerfile.dev' './Docker App'
+  -  docker build -t denyskisliak/docker-first -f ./Docker_App/Dockerfile.dev ./Docker_App
 
 script:
   - docker run -e CI=true denyskisliak/docker-first mvn test
 
 after_success:
-  - docker build -t denyskisliak/docker-first './Docker App'
+  - docker build -t denyskisliak/docker-first ./Docker_App
   - docker build -t denyskisliak/docker-sec  ./second_service
 
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin

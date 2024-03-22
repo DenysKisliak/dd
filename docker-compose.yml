@@ -10,7 +10,7 @@ services:
   java-app:
     image: 'docker-spring-boot-postgres:latest'
     build:
-      context: ./Docker App
+      context: Docker_App
       dockerfile: Dockerfile.dev
     container_name: app
     depends_on:
