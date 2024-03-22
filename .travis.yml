@@ -7,7 +7,7 @@ before_install:
   -  docker build -t denyskisliak/docker-first -f ./Docker_App/Dockerfile.dev ./Docker_App
 
 script:
-  - docker run -e CI=true denyskisliak/docker-first mvn test -DargLine="-Xss512k"
+  - docker run -e CI=true denyskisliak/docker-first mvn test -DargLine="-Xss4096k"
 
 after_success:
   - docker build -t denyskisliak/docker-first ./Docker_App
